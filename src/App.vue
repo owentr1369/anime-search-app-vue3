@@ -1,30 +1,112 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <header>
+    <h1>The<strong>Anime</strong>Database</h1>
+    <form class="search-box">
+      <input
+        type="text"
+        class="search-field"
+        placeholder="Search for an anime..."
+        required
+      />
+    </form>
+  </header>
+  <main>
+    <div class="card">
+      <CardsComp />
+    </div>
+  </main>
 </template>
-
+<script>
+import CardsComp from "./components/CardComp.vue";
+export default {
+  components: {
+    CardsComp,
+  },
+  // setup() {
+  //   return {
+  //     CardsComp,
+  //   };
+  // },
+};
+</script>
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: "Source Sans Pro", sans-serif;
 }
 
-nav {
-  padding: 30px;
+a {
+  text-decoration: none;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+header {
+  padding-top: 50px;
+  padding-bottom: 50px;
 
-    &.router-link-exact-active {
-      color: #42b983;
+  h1 {
+    color: #888;
+    font-weight: 42px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    strong {
+      color: #313131;
     }
+    &:hover {
+      color: #313131;
+    }
+  }
+  .search-box {
+    display: flex;
+    justify-content: center;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    .search-field {
+      background: none;
+      appearance: none;
+      border: none;
+      outline: none;
+
+      background-color: #f3f3f3;
+      box-shadow: 0px 4px 8px rgba($color: #000000, $alpha: 0.15);
+
+      display: block;
+      width: 100%;
+      max-width: 600px;
+      padding: 15px;
+      border-radius: 8px;
+
+      color: #313131;
+      font-size: 20px;
+
+      transition: 0.4s;
+      &::placeholder {
+        color: #aaa;
+      }
+      &:focus,
+      &:valid {
+        color: #fff;
+        background-color: #313131;
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+}
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -8px;
   }
 }
 </style>
