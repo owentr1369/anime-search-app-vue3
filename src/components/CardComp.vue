@@ -1,17 +1,16 @@
 <template>
   <div class="card">
-    <a href="#" target="_blank">
-      <img
-        src="https://via.placeholder.com/150x250.png/09f/fff"
-        alt="Anime Poster Image"
-      />
-      <h3>Naruto</h3>
+    <a :href="anime.url" target="_blank">
+      <img :src="anime.image_url" :alt="anime.title + 'Image'" />
+      <h3>{{ anime.title }}</h3>
     </a>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["anime"],
+};
 </script>
 
 <style lang="scss" scoped>
@@ -21,15 +20,12 @@ export default {};
   max-width: 33%;
   padding: 0px 8px;
   margin-bottom: 16px;
-
   img {
     width: 100%;
     height: 300px;
     object-fit: cover;
-    // The CSS object-fit property is used to specify how an <img>
-    //  or <video> should be resized to fit its container.
     border-radius: 16px;
-    box-shadow: 0px 4px 8px rgba($color: #000000, $alpha: 0.15);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
     transition: 0.4s;
   }
   h3 {
