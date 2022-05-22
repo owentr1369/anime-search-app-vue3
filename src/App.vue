@@ -114,10 +114,13 @@ main {
   margin: 0 auto;
   padding-left: 30px;
   padding-right: 30px;
+  display: flex;
+  justify-content: center;
   .cards {
     display: flex;
     flex-wrap: wrap;
     margin: 0 -8px;
+    max-width: 670px;
   }
 }
 </style>
